@@ -1,66 +1,50 @@
-# 🛒 Urban Grocers API Automation - Sprint 8
+# 🛒 Proyecto Urban Grocers API Automation 
 
-Este proyecto contiene la suite de pruebas automatizadas para la API de **Urban Grocers**. El enfoque principal es la validación del endpoint de creación de "Kits" personales, evaluando las restricciones del campo `name` mediante pruebas de caja negra (limites, tipos de datos y caracteres).
+Urban Grocers es una aplicación de servicios de entrega que permite a los usuarios realizar pedidos de productos de forma rápida y sencilla desde su dispositivo. La plataforma gestiona el proceso completo, desde la selección de productos hasta la confirmación del pedido.
 
----
+🧪 Contenido del Proyecto
 
-## 🛠️ Tecnologías y Herramientas
-* **Lenguaje:** Python 3.x
-* **Librerías:** `requests`, `pytest`
-* **Protocolo:** REST API
-* **Arquitectura:** Modular (Separación de configuración, datos y lógica de envío)
+Este proyecto contiene la suite de pruebas automatizadas para la API de Urban Grocers, enfocada en garantizar la calidad y confiabilidad de sus principales funcionalidades.
 
----
+El objetivo principal es validar el comportamiento del endpoint de creación de kits personalizados, asegurando que cumpla con las reglas de negocio definidas para el campo name.
 
-## 📂 Estructura del Proyecto
-* **`configuration.py`**: Contiene la URL base del servidor y las rutas (endpoints) necesarias.
-* **`data.py`**: Almacena los diccionarios con cuerpos de solicitud (payloads) y encabezados.
-* **`sender_stand_request.py`**: Gestiona las solicitudes HTTP (POST) y la lógica de autenticación (auth_token).
-* **`create_kit_name_kit_test.py`**: Contiene las funciones de aserción (`positive_assert`, `negative_assert`) y los 9 casos de prueba.
-* **`.gitignore`**: Define los archivos que no deben subirse al repositorio (como cachés de Python).
+🔍 Enfoque de pruebas
 
----
+Se implementan pruebas de caja negra, centradas en evaluar cómo responde el sistema ante distintos tipos de entradas, sin considerar la lógica interna del código.
 
-## 📋 Lista de Comprobación de Pruebas (Checklist)
-Se han automatizado los siguientes escenarios para el campo `name` del Kit:
+Las pruebas incluyen:
 
-| № | Descripción | Resultado Esperado |
-|---|---|---|
-| 1 | El número permitido de caracteres (1) | Código 201 + Nombre coincidente |
-| 2 | El número permitido de caracteres (511) | Código 201 + Nombre coincidente |
-| 3 | El número de caracteres es menor que el permitido (0) | Código 400 |
-| 4 | El número de caracteres es mayor que el permitido (512) | Código 400 |
-| 5 | Se permiten caracteres especiales | Código 201 |
-| 6 | Se permiten espacios | Código 201 |
-| 7 | Se permiten números | Código 201 |
-| 8 | El parámetro `name` no se pasa en la solicitud | Código 400 |
-| 9 | Se pasa un tipo de parámetro diferente (número) | Código 400 |
+Valores límite: validación de longitudes mínimas y máximas permitidas
+Tipos de datos: verificación del comportamiento ante datos válidos e inválidos
+Caracteres especiales: comprobación del manejo de símbolos y caracteres no estándar
+Casos positivos y negativos: asegurando tanto el correcto funcionamiento como la correcta gestión de errores
+🎯 Objetivo
 
----
+Garantizar que el endpoint procese correctamente las solicitudes de creación de kits y rechace aquellas que no cumplan con las restricciones establecidas, contribuyendo así a la estabilidad y robustez de la API.
 
-## 🚀 Instalación y Ejecución
+🛠️ Tecnologías y Herramientas
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone git@github.com:tu-usuario/qa-project-Urban-Grocers-app-es.git
-   cd qa-project-Urban-Grocers-app-es
-Instalar dependencias:
+El proyecto está construido utilizando herramientas modernas para el desarrollo y validación de APIs, priorizando simplicidad, escalabilidad y buenas prácticas de testing.
 
-Bash
-pip install requests pytest
-Configurar el servidor:
-
-Inicia el servidor de Urban Grocers desde la plataforma de TripleTen.
-
-Copia la URL generada y actualiza la variable URL_SERVICE en el archivo configuration.py.
-
-Ejecutar las pruebas:
-
-Bash
-pytest create_kit_name_kit_test.py
-💡 Detalles de la Implementación
-Uso de copy(): Para evitar la mutación de datos de origen en data.py, se utiliza el método .copy() en cada prueba antes de modificar el cuerpo de la solicitud.
-
-Autenticación Dinámica: Se implementó la función get_new_user_token() que registra un usuario nuevo y devuelve un authToken único para cada ejecución de kit, garantizando la independencia de las pruebas.
-
-Aserciones Robustas: Las pruebas positivas no solo validan el código 201, sino que verifican que el nombre devuelto en el JSON sea exactamente el enviado.
+🐍 Lenguaje
+Python 3.x
+Se utiliza como lenguaje principal por su legibilidad, versatilidad y amplio ecosistema de librerías orientadas a testing y automatización.
+📚 Librerías
+requests
+Permite realizar solicitudes HTTP de forma sencilla, facilitando la interacción con la API de Urban Grocers para enviar y validar peticiones.
+pytest
+Framework de testing que se utiliza para estructurar, ejecutar y validar los casos de prueba. Proporciona una sintaxis clara, soporte para fixtures y reportes detallados.
+🌐 Protocolo
+REST API
+La comunicación con el sistema se basa en principios REST, utilizando métodos HTTP como:
+GET para obtener información
+POST para crear recursos (como kits)
+PUT/PATCH para actualizaciones
+DELETE para eliminación de recursos
+🧩 Arquitectura
+Modular
+El proyecto sigue una arquitectura modular que separa claramente las responsabilidades, facilitando el mantenimiento y la escalabilidad:
+Configuración: manejo de URLs base, headers y parámetros globales
+Datos de prueba: inputs reutilizables para distintos escenarios
+Lógica de envío: funciones que encapsulan las solicitudes a la API
+Tests: casos de prueba organizados y desacoplados de la lógica principal
