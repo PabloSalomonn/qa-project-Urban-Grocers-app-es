@@ -4,25 +4,24 @@ Urban Grocers es una aplicación de servicios de entrega que permite a los usuar
 
 🧪 Contenido del Proyecto
 
-Este proyecto contiene la suite de pruebas automatizadas para la API de Urban Grocers, enfocada en garantizar la calidad y confiabilidad de sus principales funcionalidades.
+Este proyecto contiene la suite de pruebas automatizadas para la API de **Urban Grocers**, enfocada en garantizar la calidad y confiabilidad de sus principales funcionalidades.
 
-El objetivo principal es validar el comportamiento del endpoint de creación de kits personalizados, asegurando que cumpla con las reglas de negocio definidas para el campo name.
+El objetivo principal es validar el comportamiento del endpoint de creación de **kits personalizados**, asegurando que cumpla con las reglas de negocio definidas para el campo `name`.
 
 🔍 Enfoque de pruebas
 
-Se implementan pruebas de caja negra, centradas en evaluar cómo responde el sistema ante distintos tipos de entradas, sin considerar la lógica interna del código.
+Se implementan pruebas de **caja negra**, centradas en evaluar cómo responde el sistema ante distintos tipos de entradas, sin considerar la lógica interna del código.
 
 Las pruebas incluyen:
 
-Valores límite: validación de longitudes mínimas y máximas permitidas
-Tipos de datos: verificación del comportamiento ante datos válidos e inválidos
-Caracteres especiales: comprobación del manejo de símbolos y caracteres no estándar
-Casos positivos y negativos: asegurando tanto el correcto funcionamiento como la correcta gestión de errores
+- **Valores límite**: validación de longitudes mínimas y máximas permitidas  
+- **Tipos de datos**: verificación del comportamiento ante datos válidos e inválidos  
+- **Caracteres especiales**: comprobación del manejo de símbolos y caracteres no estándar  
+- **Casos positivos y negativos**: asegurando tanto el correcto funcionamiento como la correcta gestión de errores  
 
 🎯 Objetivo
 
 Garantizar que el endpoint procese correctamente las solicitudes de creación de kits y rechace aquellas que no cumplan con las restricciones establecidas, contribuyendo así a la estabilidad y robustez de la API.
-
 🛠️ Tecnologías y Herramientas
 
 El proyecto está construido utilizando herramientas modernas para el desarrollo y validación de APIs, priorizando simplicidad, escalabilidad y buenas prácticas de testing.
